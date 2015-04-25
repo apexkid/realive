@@ -1,0 +1,44 @@
+<html>
+
+<head>
+
+	{% block head %}
+		<title>{% block title %}{% endblock %} - Realive</title>
+        <meta content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+
+
+	{% endblock %}
+<link rel="stylesheet" type="text/css" href="">
+</head>
+
+<body>
+    {% block site_header %}
+    {% endblock %}
+
+    {% with messages = get_flashed_messages() %}
+            <div class="container">
+                <div class="col-lg-3 col-md-3 col-sm-2">
+                </div>
+            {% if messages %}
+                <ul class="col-lg-6 col-md-6 col-sm-8 flashes">
+                    {% for message in messages %}
+                        <li class="alert alert-info"> <i class="fa fa-close flash-close"></i> {{ message}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            </div>
+    {% endwith %}
+
+	{% block body %}
+
+	{% endblock %}
+
+    {% block site_footer %}
+    {% endblock %}
+
+    
+    <script src=""></script>
+</body>
+</html>
